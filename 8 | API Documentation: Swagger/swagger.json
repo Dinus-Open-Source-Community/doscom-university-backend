@@ -1,0 +1,141 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Phone Swagger",
+        "description": "Berisi informasi tentang daftar ponsel yang tersedia",
+        "version": "1.0.0"
+    },
+    "servers": [
+        { "url": "http://localhost:3000" }
+    ],
+    "tags": [
+        {
+            "name": "phone",
+            "description": "All about phone"
+        }
+    ],
+    "paths": {
+        "/phones": {
+            "get": {
+                "summary": "Get list of all phones",
+                "tags": [
+                    "phone"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasi mendapat list semua phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/phone"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add phone",
+                "tags": [
+                    "phone"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "brand": {
+                                        "type": "string",
+                                        "example": "Apple"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "iPhone 8"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": 5000000
+                                    },
+                                    "stock": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": 99
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berhasil menambah phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/phone"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/phones/{id}": {
+            "get": {
+                "summary": "Get list of phone by id",
+                "tags": [
+                    "phone"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of the phone",
+                        "required": "true",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasi mendapat list semua phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/phone"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "phone": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 99
+                    },
+                    "brand": {
+                        "type": "string",
+                        "example": "Samsung"
+                    }
+                }
+            }
+        }
+    }
+}

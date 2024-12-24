@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "brand": "Apple",
+    "model": "iPhone 8",
+    "stock": 99
+  },
+  {
+    "id": 1,
+    "brand": "Xiaomi",
+    "model": "Redmi 5 Plus",
+    "stock": 69
+  },
+  {
+    "id": 2,
+    "brand": "Xiaomi",
+    "model": "Redmi 5 Plus",
+    "stoc": 69
+  },
+  {
+    "id": 4,
+    "brand": "Apple",
+    "model": "iPhone 999",
+    "price": 5000000,
+    "stock": 99
+  }
+]
